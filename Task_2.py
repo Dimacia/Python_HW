@@ -3,34 +3,24 @@
 # При нечетном количестве элементов последний сохранить на своем месте.
 # Для заполнения списка элементов необходимо использовать функцию input().
 
-# узнать четное ли кол-во, если нет - последний элемент не перемещать
-# не перемещать- взять только до предпоследнего эл-та, [:len(list)-1]
-# извлечь первые и вторые значения, вставить в оригинал на место первых вторые
 
-input_str = "10101"  # input("Введите строку, которую нужно перепутать")
+input_str = input("Введите строку, которую нужно перепутать")
 input_list = list(input_str)
-print(input_str)
+# print(input_str)
+if len(input_list) % 2 > 0:  # есть нечетное число - выносим отдельно и убираем
+    last_symbol = input_list[-1]
+print(input_list)
 odd = input_str[::2]  # доставать с шагом
 even = input_str[1::2]
-print(even)
-print(odd)
+# print(even)
+# print(odd)
+
+result_list = []
 i = 0
-if len(input_list) % 2 > 0:  #  есть нечетное число
-    last_symbol = input_list[-1]
-    input_list.pop(-1)
-print(input_list)
-
-# while True:
-# else
-
-
-# while len(input_list) > i:
-#      input_list.count()
-
-# if len(input_list % 2) > 0:
-#     last_symbol = input_list[-1]
-
-# if (i % 2) > 0:
-    #Это 2-ой элемент"
-
-
+while len(even) > i:
+    result_list.append(even[i])
+    result_list.append(odd[i])
+    i += 1
+if len(input_list) % 2 > 0:
+    result_list.append(last_symbol)
+print(result_list)
