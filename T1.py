@@ -9,12 +9,15 @@
 Проверить работу примера, создав экземпляр и вызвав описанный метод.
 Задачу можно усложнить, реализовав проверку порядка режимов,
 и при его нарушении выводить соответствующее сообщение и завершать скрипт."""
-# print sleep
+
 from time import sleep
 from itertools import cycle
 
 
 class TrafficLight:
+    def __init__(self):
+        self.TrafficLight_color = color
+
     def running(self):
         color = 0
         self.TrafficLight_color = color
