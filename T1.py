@@ -18,12 +18,27 @@ class Matrix:
             print(" ".join(map(str, row)))
         return ""
 
+    def __getitem__(self, idx):
+        return self.lists_list[idx]
+
     def __add__(self, other):
-        return Matrix(self.lists_list[0] + other.lists_list[0], self.lists_list[1] + other.lists_list[1])
+        result = []
+        numbers = []
+        try:
+            for i in range(len(self.lists_list)):
+                for j in range(len(self.lists_list[0])):
+                    summed_el = self.lists_list[i][j] + other[i][j]
+                    numbers.append(summed_el)
+                    if len(numbers) == len(self.lists_list[i]):
+                        result.append(numbers)
+                        numbers = []
+            return Matrix(result)
+        except IndexError:
+            return "Ошибка: разные размерности матриц"
 
 
-m_1 = Matrix([[1, 2, 3], [4, 5, 6]])
-m_2 = Matrix([[4, 5, 6], [1, 2, 3]])
+m_1 = Matrix([[1, 1, 1], [1, 1, 1]])
+m_2 = Matrix([[1, 2, 3], [4, 5, 6]])
 print(m_1)
 print(m_2)
 
